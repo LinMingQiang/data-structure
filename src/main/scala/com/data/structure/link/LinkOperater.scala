@@ -60,7 +60,7 @@ object LinkOperater {
     var next: SingleNode = null
     while (l1 != null && l2 != null) {
       if (l1.value <= l2.value) {
-        mainLinkLastNode.next = l1
+        mainLinkLastNode.next = l1 //第一步的时候head.next也变了
         l1 = l1.next 
       } else {
         mainLinkLastNode.next = l2

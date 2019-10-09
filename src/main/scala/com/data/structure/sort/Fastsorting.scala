@@ -12,6 +12,9 @@ object Fastsorting {
 
   /**
    * 快速排序
+   * 每次从right开始（）-》 当 value(right) < 哨兵 则 交换 value(left) = value(right)
+   * 从left开始，当遇到比value(left)>哨兵 则 交换value(left) = value(right)
+   * 直到 left = right。递归 左右两边
    */
   def fastSorting(arr: Array[Int], i: Int, j: Int) {
 	  if(i>j) return; 

@@ -1,4 +1,9 @@
 # data-structure
+#Leetcode <br>
+Easy: <br>
+1480: 一维数组的动态和  <br>
+
+
 #Link 链表 <br>
 1：单链表反转  <br>
 2：约瑟夫 <br>

@@ -37,4 +37,14 @@ public class EasyTest {
         merge(a, 4, b, 4);
         println(a);
     }
+
+    /**
+     * 53 最大自序和
+     * https://leetcode-cn.com/problems/maximum-subarray/
+     */
+    @Test
+    public void testmaxSubArray(){
+        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        System.out.println(maxSubArray(nums));
+    }
 }

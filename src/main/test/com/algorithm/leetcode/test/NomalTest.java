@@ -7,8 +7,9 @@ import org.junit.Test;
 
 public class NomalTest {
     /**
-     * 重建二叉树
-     * https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/solution/mian-shi-ti-07-zhong-jian-er-cha-shu-di-gui-fa-qin/
+     * 重建二叉树：给你前序和中序遍历的数组，重建一个二叉树
+     * 递归
+     *  https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/solution/mian-shi-ti-07-zhong-jian-er-cha-shu-di-gui-fa-qin/
      */
     @Test
     public void testbuildTree(){

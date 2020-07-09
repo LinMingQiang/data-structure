@@ -1,6 +1,9 @@
 package com.algorithm.leetcode.easy;
+import com.algorithm.leetcode.normal.JavaBeanManager.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
+import static com.algorithm.leetcode.util.AlgorithmUtil.println;
 
 public class EasySolution {
 
@@ -70,6 +73,73 @@ public class EasySolution {
             ans = Math.max(ans, sum);
         }
         return ans;
+    }
+
+    /**
+     * 112. 路径总和
+     * 余下子树是否满足 sum - val
+     * https://leetcode-cn.com/problems/path-sum/
+     */
+    public static boolean hasPathSum(TreeNode root, int sum) {
+        if (root == null) {
+            return false;
+        }
+        if (root.left == null && root.right == null) {
+            return sum == root.val;
+        }
+        return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
+
+    }
+    public static int[] shuffleArr(int[] nums, int n) {
+        int[] arr = new int[2*n];
+        int i=0;
+        int j=n;
+        while(i<n && j<2*n){
+            arr[i+i] = nums[i];
+            arr[i+i+1] = nums[j];
+            i++;
+            j++;
+        }
+        return arr;
+    }
+
+    /**
+     * 将每个位置的数放到对应的下标，变成[0,1,2,3,4] 一一对应
+     * [4,2,3,2,1,5]
+     * 第一个while，i=0 =》 [1,2,3,2,4,5]->[2,1,3,2,4,5]->[3,1,2,2,4,5]->[2,1,2,3,4,5] -》 nums[0](2) == nums[2](2) 退出
+     * [4,2,1,1,0]
+     * 第一个while i=0 =》 [0,2,1,1,4]
+     * 第二个while i=1 =》[0,1,2,1,4]
+     * 第三个while i=2 =》[0,1,2,1,4]
+     * 第三个while i=3 => [0,1,2,1,4] nums[3] == nums[1]
+     * @param nums
+     * @return
+     */
+    public static int findRepeatNumber(int[] nums) {
+        int temp;
+        for(int i=0;i<nums.length;i++){
+            while (nums[i]!=i){ // while是因为要换到对应的为止
+                if(nums[i]==nums[nums[i]]){
+                    return nums[i];
+                }
+                temp=nums[i];
+                nums[i]=nums[temp];
+                nums[temp]=temp;
+                println(nums);
+            }
+        }
+        return -1;
+    }
+
+    public static boolean findNumberIn2DArray(int[][] matrix, int target) {
+        int i = matrix.length - 1, j = 0;
+        while(i >= 0 && j < matrix[0].length)
+        {
+            if(matrix[i][j] > target) i--;
+            else if(matrix[i][j] < target) j++;
+            else return true;
+        }
+        return false;
     }
 }
 

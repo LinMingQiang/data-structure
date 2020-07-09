@@ -7,9 +7,13 @@ import java.util.List;
 
 public class AlgorithmUtil {
     public static void println(int[] d) {
+        StringBuilder s = new StringBuilder("[");
         for (int i : d) {
-            System.out.println(i);
+            s.append(i);
+            s.append(',');
         }
+        s.setCharAt(s.length() -1, ']');
+        System.out.println(s);
     }
 
     public static void println(String[] d) {

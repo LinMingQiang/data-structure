@@ -1,7 +1,6 @@
 package com.algorithm.leetcode.test;
 
-import com.algorithm.leetcode.normal.JavaBeanManager.TreeNode;
-import org.junit.Before;
+import com.algorithm.leetcode.util.JavaBeanManager.TreeNode;
 import org.junit.Test;
 
 import static com.algorithm.leetcode.easy.EasySolution.*;

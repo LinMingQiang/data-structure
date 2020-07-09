@@ -1,6 +1,6 @@
 package com.algorithm.leetcode.test;
 
-import com.algorithm.leetcode.normal.JavaBeanManager;
+import com.algorithm.leetcode.util.JavaBeanManager;
 import com.algorithm.leetcode.normal.NomalSolution;
 import com.algorithm.leetcode.util.AlgorithmUtil;
 import org.junit.Test;

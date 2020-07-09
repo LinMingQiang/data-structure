@@ -1,5 +1,5 @@
 package com.algorithm.leetcode.easy;
-import com.algorithm.leetcode.normal.JavaBeanManager.TreeNode;
+import com.algorithm.leetcode.util.JavaBeanManager.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

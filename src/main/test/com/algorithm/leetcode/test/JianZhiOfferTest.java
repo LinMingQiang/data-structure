@@ -6,7 +6,7 @@ import static com.algorithm.leetcode.easy.EasyOfferSolution.*;
 
 import org.junit.Test;
 
-import static com.algorithm.leetcode.normal.JavaBeanManager.*;
+import static com.algorithm.leetcode.util.JavaBeanManager.*;
 
 import static com.algorithm.leetcode.util.AlgorithmUtil.println;
 

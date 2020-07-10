@@ -1,6 +1,6 @@
 package com.algorithm.leetcode.easy;
 
-import static com.algorithm.leetcode.normal.JavaBeanManager.*;
+import static com.algorithm.leetcode.util.JavaBeanManager.*;
 
 public class EasyOfferSolution {
     /**

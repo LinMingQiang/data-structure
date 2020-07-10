@@ -12,7 +12,7 @@ public class AlgorithmUtil {
             s.append(i);
             s.append(',');
         }
-        s.setCharAt(s.length() -1, ']');
+        s.setCharAt(s.length() - 1, ']');
         System.out.println(s);
     }
 
@@ -41,5 +41,15 @@ public class AlgorithmUtil {
         printlnTreeMid(head.left);
         System.out.println(head.val);
         printlnTreeMid(head.right);
+    }
+
+    public static void println(JavaBeanManager.ListNode n) {
+        StringBuilder a = new StringBuilder("[");
+        while (n != null) {
+            a.append(n.val + ",");
+            n = n.next;
+        }
+        a.setCharAt(a.length() - 1, ']');
+        System.out.println(a.toString());
     }
 }

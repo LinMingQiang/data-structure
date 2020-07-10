@@ -1,8 +1,5 @@
 package com.algorithm.leetcode.util;
 
-import com.algorithm.leetcode.normal.JavaBeanManager;
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
 import java.util.List;
 
 public class AlgorithmUtil {

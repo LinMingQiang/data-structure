@@ -2,7 +2,8 @@ package com.algorithm.leetcode.normal;
 
 import java.util.HashMap;
 
-import com.algorithm.leetcode.normal.JavaBeanManager.*;
+import com.algorithm.leetcode.util.JavaBeanManager;
+import com.algorithm.leetcode.util.JavaBeanManager.*;
 
 public class NomalSolution {
     /**

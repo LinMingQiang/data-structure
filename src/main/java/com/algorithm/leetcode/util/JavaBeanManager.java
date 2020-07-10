@@ -1,4 +1,4 @@
-package com.algorithm.leetcode.normal;
+package com.algorithm.leetcode.util;
 
 public class JavaBeanManager {
     /**

@@ -131,6 +131,12 @@ public class EasySolution {
         return -1;
     }
 
+    /**
+     * 在二维数组里面找到对应的目标值
+     * @param matrix
+     * @param target
+     * @return
+     */
     public static boolean findNumberIn2DArray(int[][] matrix, int target) {
         int i = matrix.length - 1, j = 0;
         while(i >= 0 && j < matrix[0].length)

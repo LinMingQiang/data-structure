@@ -25,6 +25,9 @@ public class AlgorithmUtil {
         }
     }
 
+    public static void println(JavaBeanManager.TreeNode head) {
+        printlnTreeLeft(head);
+    }
 
     public static void printlnTreeLeft(JavaBeanManager.TreeNode head) {
         if (head == null) return;

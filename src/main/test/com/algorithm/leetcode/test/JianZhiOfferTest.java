@@ -41,4 +41,44 @@ public class JianZhiOfferTest {
         ListNode a = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, null))));
         println(getKthFromEnd(a, 1));
     }
+    /**
+     * 剑指 Offer 06. 从尾到头打印链表
+     * https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
+     * @return
+     */
+    @Test
+    public void testreversePrint(){
+        ListNode a = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, null))));
+        println(reversePrint(a));
+    }
+
+
+    /**
+     * 剑指 Offer 27. 二叉树的镜像
+     * https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/
+     *               5
+     *              / \
+     *             4   8
+     *            /   / \
+     *           11  13  4
+     *          /  \      \
+     *         7    2      1
+     */
+    @Test
+    public void testmirrorTree() {
+        TreeNode l4 = new TreeNode(4, new TreeNode(11, new TreeNode(7, null, null), new TreeNode(2, null, null)), null);
+        TreeNode r8 = new TreeNode(8, new TreeNode(13, null, null), new TreeNode(4, null, new TreeNode(1, null, null)));
+        TreeNode a5 = new TreeNode(5, l4, r8);
+        println(mirrorTree(a5));
+    }
+
+    /**
+     *  剑指 Offer 29. 顺时针打印矩阵
+     *  https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/
+     */
+    @Test
+    public void testspiralOrder(){
+        int[][] a = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+        println(spiralOrder(a));
+    }
 }

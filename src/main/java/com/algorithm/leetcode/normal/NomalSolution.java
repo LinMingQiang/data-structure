@@ -14,12 +14,14 @@ public class NomalSolution {
      */
     public static HashMap<Integer, Integer> dic = new HashMap();
     public static int[] po;
+
     public static TreeNode buildTree(int[] preorder, int[] inorder) {
         po = preorder;
         for (int i = 0; i < inorder.length; i++)
             dic.put(inorder[i], i);
         return buildTreeRecur(0, 0, inorder.length - 1);
     }
+
     public static JavaBeanManager.TreeNode buildTreeRecur(int pre_root, int in_left, int in_right) {
         if (in_left > in_right) return null;
         TreeNode root = new TreeNode(po[pre_root]); // 前序中的根节点
@@ -33,5 +35,31 @@ public class NomalSolution {
         return root;
     }
 
-    //
+    //DFS 深度优先搜索
+    public static int maxAreaOfIsland(int[][] grid) {
+        int res = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if (grid[i][j] == 1) { // 发现岛屿进入循环
+                    res = Math.max(res, dfs(i, j, grid));
+                }
+            }
+        }
+        return res;
+    }
+
+    // 每次调用的时候默认num为1，进入后判断如果不是岛屿，则直接返回0，就可以避免预防错误的情况。
+    private static int dfs(int i, int j, int[][] grid) {
+        if (i < 0 || j < 0 || i >= grid.length || j >= grid[i].length || grid[i][j] == 0) {
+            return 0;
+        }
+        grid[i][j] = 0; // 将当前遍历的点置为0，防止后面的节点再遍历
+        int num = 1; //
+        num = num + dfs(i + 1, j, grid); // 遍历下行
+        num = num + dfs(i - 1, j, grid);
+        num = num + dfs(i, j + 1, grid);
+        num = num + dfs(i, j - 1, grid);
+        return num;
+
+    }
 }

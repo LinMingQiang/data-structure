@@ -81,4 +81,43 @@ public class JianZhiOfferTest {
         int[][] a = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         println(spiralOrder(a));
     }
+
+
+    /**
+     * 剑指 Offer 24. 反转链表
+     * https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/
+     */
+    @Test
+    public void testreverseList(){
+        ListNode a = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, null))));
+        println(reverseList(a));
+    }
+
+    /**
+     * 剑指 Offer 18. 删除链表的节点
+     */
+    @Test
+    public void testdeleteNode(){
+        ListNode a = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, null))));
+        println(deleteNode(a, 3));
+    }
+    /**
+     * 剑指 Offer 39. 数组中出现次数超过一半的数字
+     */
+    @Test
+    public void testmajorityElement(){
+        int[] a = {1,1,1,1,2,2,2,2,1,5};
+        println(majorityElement(a));
+    }
+
+    /**
+     * 剑指 Offer 54. 二叉搜索树的第k大节点
+     */
+    @Test
+    public void testkthLargest(){
+        TreeNode l4 = new TreeNode(4, null, null);
+        TreeNode r8 = new TreeNode(8, null, new TreeNode(13, null, null));
+        TreeNode a5 = new TreeNode(5, l4, r8);
+        println( kthLargest(a5, 2));
+    }
 }

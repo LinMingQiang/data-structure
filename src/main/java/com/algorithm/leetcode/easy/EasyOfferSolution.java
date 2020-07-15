@@ -79,4 +79,65 @@ public class EasyOfferSolution {
     }
 
 
+    /**
+     *
+     * @param head
+     * @return
+     */
+    public static ListNode reverseList(ListNode head) {
+        ListNode pre = null; // 前一个节点
+        ListNode cur = head; // 当前节点
+        ListNode next = null; // 下一个节点
+        while (cur != null) {
+            next = cur.next ; // 先保存下个节点
+            cur.next = pre; // 当前节点的下个节点指向上一个节点
+            pre = cur; // 上个节点指向当前节点
+            cur = next;  // 当前节点指向下一个节点
+        }
+        return pre;
+    }
+
+
+    public static ListNode deleteNode(ListNode head, int val) {
+        if(head.val == val) return head.next;
+        ListNode cur = head;
+        while (cur.next != null && cur.next.val != val)
+            cur = cur.next;
+        if (cur.next != null)
+            cur.next = cur.next.next;
+        return head;
+    }
+
+    /**
+     * 摩尔投票法：
+     * 票数和： 由于众数出现的次数超过数组长度的一半；若记 众数 的票数为 +1+1 ，非众数 的票数为 -1−1 ，则一定有所有数字的 票数和 > 0>0 。
+     * 票数正负抵消： 设数组 nums 中的众数为 x ，数组长度为 nn 。若 nums 的前 aa 个数字的 票数和 = 0=0 ，则 数组后 (n-a)(n−a) 个数字的 票数和一定仍 >0>0 （即后 (n-a)(n−a) 个数字的 众数仍为 xx ）。
+     * @param nums 假设 第一个就是众数，如果不是众数，一定会被真正的众数替代
+     * @return
+     */
+    public static int majorityElement(int[] nums) {
+        int x = 0, votes = 0;
+        for(int num : nums){
+            if(votes == 0) x = num; // 如果数值等于0，说明众数在剩下的数里面。
+            votes += num == x ? 1 : -1;
+        }
+        return x;
+    }
+
+
+    /**
+     *  中序遍历，先右后左，找到第k就返回
+     */
+    public static int res, ks;
+    public static int kthLargest(TreeNode root, int k) {
+        ks = k;
+        dfs(root);
+        return res;
+    }
+    public static void dfs(TreeNode root) {
+        if(root == null) return;
+        dfs(root.right); // 一直向右找
+        if(--ks == 0) { res = root.val; return; }
+        dfs(root.left); // 最后向左找
+    }
 }

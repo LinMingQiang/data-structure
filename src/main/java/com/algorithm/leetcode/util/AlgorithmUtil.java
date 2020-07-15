@@ -12,6 +12,10 @@ public class AlgorithmUtil {
         s.setCharAt(s.length() - 1, ']');
         System.out.println(s);
     }
+    public static void println(int d) {
+        System.out.println(d);
+    }
+
 
     public static void println(String[] d) {
         for (String i : d) {

@@ -35,7 +35,6 @@ object LinkOperater {
     var nextHead: SingleNode = null
     var pre: SingleNode = null
     while (head != null) {
-
       //以下三步为反转操作。就是next和pre的互换。把当前head的next变成上一个pre。（注意要先把head.next拿出来）
       nextHead = head.next //先把下一个记下来
       head.next = pre //将上一个 赋值给当前node的next。

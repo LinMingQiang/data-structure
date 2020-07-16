@@ -1,5 +1,6 @@
 package com.algorithm.leetcode.util;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class AlgorithmUtil {
@@ -15,7 +16,15 @@ public class AlgorithmUtil {
     public static void println(int d) {
         System.out.println(d);
     }
+    public static void println(boolean d) {
+        System.out.println(d);
+    }
 
+    public static void println(List<?> res) {
+        for(Object i : res){
+            System.out.println(i.toString());
+        }
+    }
 
     public static void println(String[] d) {
         for (String i : d) {
@@ -23,11 +32,11 @@ public class AlgorithmUtil {
         }
     }
 
-    public static void println(List<Boolean> d) {
-        for (Boolean i : d) {
-            System.out.println(i);
-        }
-    }
+//    public static void println(List<Boolean> d) {
+//        for (Boolean i : d) {
+//            System.out.println(i);
+//        }
+//    }
 
     public static void println(JavaBeanManager.TreeNode head) {
         printlnTreeLeft(head);

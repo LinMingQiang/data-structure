@@ -1,6 +1,7 @@
 package com.algorithm.leetcode.easy;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Set;
 import java.util.Stack;
 
@@ -200,5 +201,35 @@ public class EasyOfferSolution {
             res = Math.max(res, price - minPrice); // 同之前的结果比较，当前价格-之前最小价格
         }
         return res;
+    }
+
+    /**
+     * 用两个栈实现队列的功能
+     */
+    public static class CQueue {
+        LinkedList<Integer> a, b;
+
+        public CQueue() {
+            a = new LinkedList<Integer>();
+            b = new LinkedList<Integer>();
+        }
+
+        public void appendTail(int value) {
+            a.addLast(value);
+        }
+
+        public int deleteHead() {
+            if (!b.isEmpty()) { // b里面有元素
+                return b.removeLast();
+            } else if (a.isEmpty()) { // a里面没有元素
+                return -1;
+            } else { // a里面有元素，b里面没有元素
+                while (!a.isEmpty()) { // 将a的元素放入b
+                    b.addLast(a.removeLast());
+                }
+                return b.removeLast();
+            }
+
+        }
     }
 }

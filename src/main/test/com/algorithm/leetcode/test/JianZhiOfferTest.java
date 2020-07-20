@@ -4,6 +4,7 @@ import static com.algorithm.leetcode.easy.EasySolution.*;
 
 import static com.algorithm.leetcode.easy.EasyOfferSolution.*;
 
+import com.algorithm.leetcode.easy.EasyOfferSolution;
 import org.junit.Test;
 import static com.algorithm.leetcode.normal.NomalOfferSolution.*;
 import static com.algorithm.leetcode.util.JavaBeanManager.*;
@@ -175,5 +176,14 @@ public class JianZhiOfferTest {
     public void testmaxProfit(){
         int[] a= {7,1,5,3,6,4};
        println(maxProfit(a));
+    }
+    /**
+     * 剑指 Offer 09. 用两个栈实现队列
+     */
+    @Test
+    public void testCQueue(){
+        EasyOfferSolution.CQueue a = new EasyOfferSolution.CQueue();
+        a.appendTail(1);
+        println(a.deleteHead());
     }
 }

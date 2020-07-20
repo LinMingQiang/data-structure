@@ -159,4 +159,21 @@ public class JianZhiOfferTest {
         TreeNode a5 = new TreeNode(5, l4, r8);
         println( pathSum(a5, 9));
     }
+
+
+    /**
+     * 剑指 Offer 49. 丑数
+     */
+    @Test
+    public void testnthUglyNumber(){
+        println(nthUglyNumber(13));
+    }
+    /**
+     * 剑指 Offer 63. 股票的最大利润
+     */
+    @Test
+    public void testmaxProfit(){
+        int[] a= {7,1,5,3,6,4};
+       println(maxProfit(a));
+    }
 }

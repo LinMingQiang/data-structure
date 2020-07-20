@@ -82,7 +82,6 @@ public class EasyOfferSolution {
 
 
     /**
-     *
      * @param head
      * @return
      */
@@ -91,7 +90,7 @@ public class EasyOfferSolution {
         ListNode cur = head; // 当前节点
         ListNode next = null; // 下一个节点
         while (cur != null) {
-            next = cur.next ; // 先保存下个节点
+            next = cur.next; // 先保存下个节点
             cur.next = pre; // 当前节点的下个节点指向上一个节点
             pre = cur; // 上个节点指向当前节点
             cur = next;  // 当前节点指向下一个节点
@@ -101,7 +100,7 @@ public class EasyOfferSolution {
 
 
     public static ListNode deleteNode(ListNode head, int val) {
-        if(head.val == val) return head.next;
+        if (head.val == val) return head.next;
         ListNode cur = head;
         while (cur.next != null && cur.next.val != val)
             cur = cur.next;
@@ -114,13 +113,14 @@ public class EasyOfferSolution {
      * 摩尔投票法：
      * 票数和： 由于众数出现的次数超过数组长度的一半；若记 众数 的票数为 +1+1 ，非众数 的票数为 -1−1 ，则一定有所有数字的 票数和 > 0>0 。
      * 票数正负抵消： 设数组 nums 中的众数为 x ，数组长度为 nn 。若 nums 的前 aa 个数字的 票数和 = 0=0 ，则 数组后 (n-a)(n−a) 个数字的 票数和一定仍 >0>0 （即后 (n-a)(n−a) 个数字的 众数仍为 xx ）。
+     *
      * @param nums 假设 第一个就是众数，如果不是众数，一定会被真正的众数替代
      * @return
      */
     public static int majorityElement(int[] nums) {
         int x = 0, votes = 0;
-        for(int num : nums){
-            if(votes == 0) x = num; // 如果数值等于0，说明众数在剩下的数里面。
+        for (int num : nums) {
+            if (votes == 0) x = num; // 如果数值等于0，说明众数在剩下的数里面。
             votes += num == x ? 1 : -1;
         }
         return x;
@@ -128,37 +128,77 @@ public class EasyOfferSolution {
 
 
     /**
-     *  中序遍历，先右后左，找到第k就返回
+     * 中序遍历，先右后左，找到第k就返回
      */
     public static int res, ks;
+
     public static int kthLargest(TreeNode root, int k) {
         ks = k;
         dfs(root);
         return res;
     }
+
     public static void dfs(TreeNode root) {
-        if(root == null) return;
+        if (root == null) return;
         dfs(root.right); // 一直向右找
-        if(--ks == 0) { res = root.val; return; }
+        if (--ks == 0) {
+            res = root.val;
+            return;
+        }
         dfs(root.left); // 最后向左找
     }
 
 
     /**
      * 重复排跳出。大小王跳过；结果的最大和最小的差距不超过5就可以
+     *
      * @param nums
      * @return
      */
     public static boolean isStraight(int[] nums) {
         Set<Integer> repeat = new HashSet<>();
         int max = 0, min = 14;
-        for(int num : nums) {
-            if(num == 0) continue; // 跳过大小王
+        for (int num : nums) {
+            if (num == 0) continue; // 跳过大小王
             max = Math.max(max, num); // 最大牌
             min = Math.min(min, num); // 最小牌
-            if(repeat.contains(num)) return false; // 若有重复，提前返回 false
+            if (repeat.contains(num)) return false; // 若有重复，提前返回 false
             repeat.add(num); // 添加此牌至 Set
         }
         return max - min < 5; // 最大牌 - 最小牌 < 5 则可构成顺子
+    }
+
+
+    /**
+     * @param n
+     * @return
+     */
+    public static int nthUglyNumber(int n) {
+        int a = 0, b = 0, c = 0;
+        int[] dp = new int[n];
+        dp[0] = 1;
+        for (int i = 1; i < n; i++) {
+            int n2 = dp[a] * 2, n3 = dp[b] * 3, n5 = dp[c] * 5;
+            dp[i] = Math.min(Math.min(n2, n3), n5);
+            if (dp[i] == n2) a++;
+            if (dp[i] == n3) b++;
+            if (dp[i] == n5) c++;
+        }
+        return dp[n - 1];
+    }
+
+    /**
+     * minPrice : i天之前的最小价格
+     *
+     * @param prices
+     * @return
+     */
+    public static int maxProfit(int[] prices) {
+        int minPrice = Integer.MAX_VALUE, res = 0;
+        for (int price : prices) {
+            minPrice = Math.min(minPrice, price); // 得到i天之前的最小价格
+            res = Math.max(res, price - minPrice); // 同之前的结果比较，当前价格-之前最小价格
+        }
+        return res;
     }
 }

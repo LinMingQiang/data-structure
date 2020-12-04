@@ -11,7 +11,8 @@ object Fastsorting {
   }
 
   /**
-   * 快速排序
+   * 快速排序：
+   *
    * 每次从right开始（）-》 当 value(right) < 哨兵 则 交换 value(left) = value(right)
    * 从left开始，当遇到比value(left)>哨兵 则 交换value(left) = value(right)
    * 直到 left = right。递归 左右两边
@@ -34,6 +35,7 @@ object Fastsorting {
       }
     }
     //相遇退出。把哨兵的值置换到left=right的位置
+    // 哨兵同碰面的位置交换
     arr(i)=arr(left)//arr(i)就是哨兵
     arr(left)=sentry
     fastSorting(arr, i, left-1)//左边排序

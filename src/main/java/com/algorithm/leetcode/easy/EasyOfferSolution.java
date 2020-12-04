@@ -83,6 +83,7 @@ public class EasyOfferSolution {
 
 
     /**
+     * 反转链表
      * @param head
      * @return
      */
@@ -231,5 +232,43 @@ public class EasyOfferSolution {
             }
 
         }
+    }
+
+    /**
+     * 二分查找
+     *
+     * @param numbers
+     * @return
+     */
+    public static int minArray(int[] numbers) {
+        int i = 0, j = numbers.length - 1;
+        while (i < j) {
+            int m = (i + j) / 2; // 中间
+            if (numbers[m] > numbers[j]) i = m + 1;
+            else if (numbers[m] < numbers[j]) j = m;
+            else j--;
+        }
+        return numbers[i];
+    }
+
+    /**
+     * 判断B是不是A的子结构
+     * 三部走： 是否A根节点开始，是否是A的左子树，是否是A的右子树
+     * 递归 ： B遍历完返回成功。A遍历完或者值不等，放回失败。 否则就继续比较左，右 子树是否相等
+     * @param A
+     * @param B
+     * @return
+     */
+    public static boolean isSubStructure(TreeNode A, TreeNode B) {
+        return (A != null && B != null) &&
+                ( compareTree(A, B) ||  // 判断两个是否相等
+                        isSubStructure(A.left, B) ||  // 判断B是否为A的左子树
+                        isSubStructure(A.right, B));
+    }
+
+    public static boolean compareTree(TreeNode A, TreeNode B) {
+        if (B == null) return true; // B访问完了，A不管为不为null
+        if (A == null || A.val != B.val) return false; // 值不相等也放回false
+        return compareTree(A.left, B.left) && compareTree(A.right, B.right); // 继续比较其他节点
     }
 }

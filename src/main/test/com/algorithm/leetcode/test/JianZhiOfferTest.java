@@ -186,4 +186,24 @@ public class JianZhiOfferTest {
         a.appendTail(1);
         println(a.deleteHead());
     }
+
+    /**
+     * 剑指 Offer 11. 旋转数组的最小数字 (二分查找 )
+     */
+    @Test
+    public void testminArray(){
+        int[] a = {1,3,5};
+        println(minArray(a));
+    }
+
+    /**
+     * 剑指 Offer 26. 树的子结构
+     */
+    @Test
+    public void testisSubStructure(){
+        TreeNode l4 = new TreeNode(4, null, null);
+        TreeNode r8 = new TreeNode(8, null, new TreeNode(13, null, null));
+        TreeNode a5 = new TreeNode(5, l4, r8);
+        println(isSubStructure(a5, l4));
+    }
 }
